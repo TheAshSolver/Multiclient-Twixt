@@ -1,0 +1,37 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include "edge.h"
+#include "grid.h"
+#include "input.h"
+
+
+#define PORT "3490"
+#define IP "127.0.0.1"
+
+
+typedef enum Turn{
+First = 1, 
+Second =2
+
+
+} Turn;
+
+
+
+
+
+int main(){
+Turn my_turn;
+Turn current_turn;
+
+
+
+
+
+
+
+
+
+
+    return 0;
+}

@@ -128,6 +128,14 @@ int main(int argc, char *argv[]) {
             //wait for server response
             printf("Waiting for opponents move:\n");
             receive_points(my_socket, &x, &y);
+            if(x==-1 && y==-1){
+                if(my_turn==1 ){
+                    printf("FIRST PLAYER WON!!!!\n");
+                }
+                else{
+                    printf("SECOND PLAYER WON!!!");
+                }
+            }
             if(current_turn==1){
                 printf(RED"Opponent's moves: %d %d\n"RESET, x,y);
                 grid[x][y] = 1;
@@ -152,11 +160,11 @@ int main(int argc, char *argv[]) {
 
         }
         if(win_first(total, grid, length)>=1) {
-            printf("RED WON!!!");
+            printf("FIRST PLAYER WON!!!");
             break;
         }
         if(win_second(total, grid, length)>=1) {
-            printf("BLUE WON!!!");
+            printf("SECOND PLAYER WON!!!");
             break;
         }
 

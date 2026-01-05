@@ -133,7 +133,7 @@ int handle_new_client(int listener) {
         return 0;
     }
     else {
-        printf("Received room\n");
+        printf("Received room number from client \n");
     }
     int game_id;
     if(sscanf(room_code, "%d", &game_id)!=1) {
@@ -148,13 +148,12 @@ int handle_new_client(int listener) {
     }
     //accept client and give red role
     if(curr==NULL) {
-        printf("In thsi stage\n");
         if(send(new_fd, "F", 2, 0)==-1) {
             printf("Client connection failed\n");
             return 0;
         }
         else {
-            printf("Role give\n");
+            printf("Role F given to client\n");
         }
 
         Game *new_game = malloc(sizeof(Game));
@@ -207,7 +206,7 @@ int handle_new_client(int listener) {
                 return 0;
             }
             else {
-                printf("role S sent\n");
+                printf("Role S given to client\n");
             }
             Client *new_client = malloc(sizeof(Client));
             new_client->socket = new_fd;
@@ -233,12 +232,12 @@ int handle_new_client(int listener) {
                 printf("Error");
                 exit(1);
             }
-            printf("sent red");
+            printf("Sent begin to F\n");
             if(send(curr->black_player_fd, "B", 2, 0)==-1) {
                 printf("Error");
                 exit(1);
             }
-            printf("sent black\n");
+            printf("Sent begin to S\n");
         }
         //reject client because room is full
         else {

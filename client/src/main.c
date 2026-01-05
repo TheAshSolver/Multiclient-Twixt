@@ -33,7 +33,7 @@ int main(int argc, char *argv[]) {
     print_grid(grid, 24, total, length);
     printf("%d\n", my_turn);
     while(1){
-       
+        while(getchar()!='\n'); 
         if(my_turn==current_turn){
             //accept user input
             if(current_turn==1){
